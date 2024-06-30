@@ -34,33 +34,32 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.cors(
-                cors -> cors.configurationSource(
-                        request -> {
-                            CorsConfiguration corsConfiguration = new CorsConfiguration();
-                            corsConfiguration.setAllowedOrigins(Arrays.asList("*"));
-                            corsConfiguration.setAllowedMethods(Arrays.asList("*"));
-                            corsConfiguration.setAllowedHeaders(Arrays.asList("*"));
-                            return  corsConfiguration;
-                        }
-                )).
-                csrf( csrf-> csrf.disable()).authorizeHttpRequests(
-                aut -> aut.requestMatchers("/api/v1/admin/categories/**").hasRole("ADMIN")
-                        .requestMatchers("/api/v1/admin/products/**").hasRole("ADMIN")
-                        .requestMatchers("/api/v1/orders/**").hasRole("USER")
-                        .requestMatchers("/api/v1/payments/success").permitAll()
-                        .requestMatchers("/api/v1/payments/**").hasRole("USER")
-                        .requestMatchers("/images/**").permitAll()
-                        .requestMatchers("/api/v1/home/**").permitAll()
-                        .requestMatchers("/api/v1/security/**").permitAll().anyRequest().authenticated()
-        ).addFilterAfter(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class) ;
+        httpSecurity.cors(cors -> cors.configurationSource(request -> {
+            CorsConfiguration corsConfiguration = new CorsConfiguration();
+            corsConfiguration.setAllowedOrigins(Arrays.asList("https://springstore.netlify.app/"));
+            corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+            corsConfiguration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Cache-Control"));
+            corsConfiguration.setAllowCredentials(true);
+            return corsConfiguration;
+        })).csrf(csrf -> csrf.disable())
+          .authorizeHttpRequests(aut -> aut
+                .requestMatchers("/api/v1/admin/categories/**").hasRole("ADMIN")
+                .requestMatchers("/api/v1/admin/products/**").hasRole("ADMIN")
+                .requestMatchers("/api/v1/orders/**").hasRole("USER")
+                .requestMatchers("/api/v1/payments/success").permitAll()
+                .requestMatchers("/api/v1/payments/**").hasRole("USER")
+                .requestMatchers("/images/**").permitAll()
+                .requestMatchers("/api/v1/home/**").permitAll()
+                .requestMatchers("/api/v1/security/**").permitAll()
+                .anyRequest().authenticated()
+          )
+          .addFilterAfter(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder (){
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }
