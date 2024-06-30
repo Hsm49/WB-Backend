@@ -40,6 +40,7 @@ com\icodeap\ecommerce\backend\BackendApplication.class
 com\icodeap\ecommerce\backend\infrastructure\entity\CategoryEntity.class
 com\icodeap\ecommerce\backend\infrastructure\entity\OrderEntity.class
 com\icodeap\ecommerce\backend\domain\model\UserType.class
+com\icodeap\ecommerce\backend\infrastructure\config\WebConfig.class
 com\icodeap\ecommerce\backend\application\ProductService.class
 com\icodeap\ecommerce\backend\application\CategoryService.class
 com\icodeap\ecommerce\backend\infrastructure\adapter\CategoryCrudRepositoryImpl.class
@@ -47,6 +48,7 @@ com\icodeap\ecommerce\backend\infrastructure\entity\OrderProductEntity.class
 com\icodeap\ecommerce\backend\infrastructure\mapper\UserMapperImpl.class
 com\icodeap\ecommerce\backend\infrastructure\jwt\JWTGenerator.class
 com\icodeap\ecommerce\backend\domain\port\IOrderRepository.class
+com\icodeap\ecommerce\backend\infrastructure\config\WebConfig$1.class
 com\icodeap\ecommerce\backend\infrastructure\rest\RegistrationController.class
 com\icodeap\ecommerce\backend\infrastructure\mapper\IOrderProductMapper.class
 com\icodeap\ecommerce\backend\infrastructure\rest\LoginController.class

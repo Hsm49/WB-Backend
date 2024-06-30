@@ -19,8 +19,8 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequestMapping("/api/v1/payments")
 public class PaypalController {
     private final PaypalService paypalService;
-    private final String SUCCESS_URL = "http://localhost:8085/api/v1/payments/success";
-    private  final String CANCEL_URL = "http://localhost:8085/api/v1/payments/cancel";
+    private final String SUCCESS_URL = "http://localhost:8080/api/v1/payments/success";
+    private  final String CANCEL_URL = "http://localhost:8080/api/v1/payments/cancel";
 
     @PostMapping
     public URLPaypalResponse createPayment(@RequestBody DataPayment dataPayment){

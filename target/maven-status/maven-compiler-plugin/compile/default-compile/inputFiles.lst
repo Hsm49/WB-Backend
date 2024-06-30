@@ -33,6 +33,7 @@ D:\Users\Josue\Desktop\WB\backend\src\main\java\com\icodeap\ecommerce\backend\in
 D:\Users\Josue\Desktop\WB\backend\src\main\java\com\icodeap\ecommerce\backend\infrastructure\rest\PaypalController.java
 D:\Users\Josue\Desktop\WB\backend\src\main\java\com\icodeap\ecommerce\backend\domain\port\ICategoryRepository.java
 D:\Users\Josue\Desktop\WB\backend\src\main\java\com\icodeap\ecommerce\backend\infrastructure\entity\UserEntity.java
+D:\Users\Josue\Desktop\WB\backend\src\main\java\com\icodeap\ecommerce\backend\infrastructure\config\WebConfig.java
 D:\Users\Josue\Desktop\WB\backend\src\main\java\com\icodeap\ecommerce\backend\infrastructure\rest\CategoryController.java
 D:\Users\Josue\Desktop\WB\backend\src\main\java\com\icodeap\ecommerce\backend\infrastructure\rest\OrderController.java
 D:\Users\Josue\Desktop\WB\backend\src\main\java\com\icodeap\ecommerce\backend\domain\port\IProductRepository.java
