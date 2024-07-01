@@ -18,7 +18,6 @@ import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
-@Slf4j
 public class SecurityConfig {
 
     private final JWTAuthorizationFilter jwtAuthorizationFilter;
