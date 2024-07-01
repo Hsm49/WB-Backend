@@ -33,7 +33,7 @@ public class LoginController {
     @PostMapping("/login")
     public ResponseEntity<JWTClient> login(@RequestBody UserDTO userDTO) {
         Authentication authentication = authenticationManager.authenticate(
-               new UsernamePasswordAuthenticationToken(userDTO.username(), userDTO.password())
+                new UsernamePasswordAuthenticationToken(userDTO.username(), userDTO.password())
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
