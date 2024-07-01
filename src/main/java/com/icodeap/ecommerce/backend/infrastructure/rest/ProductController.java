@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @RequestMapping("/api/v1/admin/products")
 @Slf4j
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://localhost:4200", "https://wb-backend-1.onrender.com"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://springstore.netlify.app"})
 public class ProductController {
 
     private final ProductService productService;

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/security")
-@CrossOrigin(origins = {"http://localhost:4200", "https://wb-backend-1.onrender.com"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://springstore.netlify.app"})
 @Slf4j
 public class RegistrationController {
     private final RegistrationService registrationService;
