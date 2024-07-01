@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/security")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://springstore.netlify.app"})
 @Slf4j
 public class LoginController {
 
     private final AuthenticationManager authenticationManager;
     private final JWTGenerator jwtGenerator;
-    private  final UserService userService;
+    private final UserService userService;
 
     public LoginController(AuthenticationManager authenticationManager, JWTGenerator jwtGenerator, UserService userService) {
         this.authenticationManager = authenticationManager;
@@ -31,9 +31,9 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JWTClient>  login(@RequestBody UserDTO userDTO){
+    public ResponseEntity<JWTClient> login(@RequestBody UserDTO userDTO) {
         Authentication authentication = authenticationManager.authenticate(
-               new  UsernamePasswordAuthenticationToken( userDTO.username(), userDTO.password())
+               new UsernamePasswordAuthenticationToken(userDTO.username(), userDTO.password())
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -46,7 +46,6 @@ public class LoginController {
         String token = jwtGenerator.getToken(userDTO.username());
         JWTClient jwtClient = new JWTClient(user.getId(), token);
 
-
-        return  new ResponseEntity<>(jwtClient, HttpStatus.OK);
+        return new ResponseEntity<>(jwtClient, HttpStatus.OK);
     }
 }
