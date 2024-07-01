@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 //http://localhost:8080
 @RequestMapping("/api/v1/users")
 //http://localhost:8080/api/v1/users
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://springstore.netlify.app/"})
 public class UserController {
     private final UserService userService;
 
